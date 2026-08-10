@@ -66,6 +66,7 @@ local browser = "zen-browser"
 
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
+hl.env("QT_QPA_PLATFORMETHEME", "qt6ct")
 
 
 -----------------------
@@ -119,7 +120,7 @@ hl.config({
 
         -- Change transparency of focused and unfocused windows
         active_opacity   = 1.0,
-        inactive_opacity = 1.0,
+        inactive_opacity = 0.85,
 
         shadow = {
             enabled      = true,
@@ -129,7 +130,7 @@ hl.config({
         },
 
         blur = {
-            enabled   = true,
+            enabled   = false,
             size      = 3,
             passes    = 1,
             vibrancy  = 0.1696,
@@ -232,6 +233,9 @@ hl.config({
         kb_options = "",
         kb_rules   = "",
 
+        repeat_rate = 25,
+        repeat_delay = 300,
+
         follow_mouse = 1,
 
         sensitivity = 0.2, -- -1.0 - 1.0, 0 means no modification.
@@ -262,6 +266,7 @@ hl.device({
 ---------------------
 
 local mainMod = "SUPER" -- Sets "Windows" key as main modifier
+local secondMod = "SUPER + SHIFT"
 
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
 hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd(terminal))
@@ -281,12 +286,19 @@ hl.bind(mainMod .. " + L", hl.dsp.focus({ direction = "right" }))
 hl.bind(mainMod .. " + K",    hl.dsp.focus({ direction = "up" }))
 hl.bind(mainMod .. " + J",  hl.dsp.focus({ direction = "down" }))
 
+hl.bind(secondMod .. " + H",  hl.dsp.window.move({ direction = "left" }))
+hl.bind(secondMod .. " + L", hl.dsp.window.move({ direction = "right" }))
+hl.bind(secondMod .. " + K",    hl.dsp.window.move({ direction = "up" }))
+hl.bind(secondMod .. " + J",  hl.dsp.window.move({ direction = "down" }))
+
+hl.bind(secondMod .. " + F", hl.dsp.window.fullscreen({ mode = "maximized" }))
+
 -- Switch workspaces with mainMod + [0-9]
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
 for i = 1, 10 do
     local key = i % 10 -- 10 maps to key 0
     hl.bind(mainMod .. " + " .. key,             hl.dsp.focus({ workspace = i}))
-    hl.bind(mainMod .. " + SHIFT + " .. key,     hl.dsp.window.move({ workspace = i }))
+    hl.bind(secondMod .. " + " .. key,     hl.dsp.window.move({ workspace = i }))
 end
 
 -- Example special workspace (scratchpad)
