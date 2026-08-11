@@ -1,0 +1,19 @@
+{
+  "logo": {
+    "type": "kitty",
+    "source": "/home/heads/Life/sevillafclogo.png",
+    "width": 20
+  },
+  "modules": [
+    "os",
+    "kernel",
+    "uptime",
+    "packages",
+    "wm",
+    "cpu",
+    "gpu",
+    "memory",
+    "disk",
+    "localip"
+  ]
+}
