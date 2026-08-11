@@ -57,6 +57,10 @@ local browser = "zen-browser"
 --   hl.exec_cmd("wl-gammarelay-rs")
 -- end)
 
+hl.on("hyprland.start", function () 
+    hl.exec_cmd("hyprpaper")
+end)
+
 
 -------------------------------
 ---- ENVIRONMENT VARIABLES ----
