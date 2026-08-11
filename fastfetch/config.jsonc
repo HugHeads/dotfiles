@@ -10,8 +10,6 @@
     "uptime",
     "packages",
     "wm",
-    "cpu",
-    "gpu",
     "memory",
     "disk",
     "localip"
