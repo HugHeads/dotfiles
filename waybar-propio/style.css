@@ -1,0 +1,109 @@
+/* Reset total y estricto */
+* {
+    border: none;
+    border-radius: 0;
+    background: transparent; 
+    font-family: "JetBrainsMono Nerd Font", "FontAwesome", monospace;
+    font-size: 10.5px; 
+    font-weight: bold;
+    min-height: 0; 
+}
+
+/* Matar las sombras fantasma de los botones GTK de una vez por todas */
+button {
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+}
+button:hover {
+    box-shadow: none;
+    background: transparent;
+}
+
+window#waybar {
+    background: transparent;
+}
+
+/* Cajas laterales vacías, nos aseguramos de que no ocupen espacio */
+.modules-left, .modules-right {
+    margin: 0;
+    padding: 0;
+}
+
+/* --- LA SÚPER PÍLDORA CENTRAL --- */
+.modules-center {
+    background-color: rgba(10, 12, 20, 0.85); 
+    border: 1px solid rgba(36, 40, 59, 0.5);
+    border-radius: 999px; /* Da la forma de píldora gigante */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+    padding: 2px 8px; /* Espaciado interno de los bordes de la píldora */
+    margin: 0;
+}
+
+/* --- ELEMENTOS DENTRO DE LA PÍLDORA --- */
+#clock, #workspaces, #network, #battery, #custom-music {
+    padding: 0 8px; /* Separación entre cada elemento */
+    margin: 0;
+}
+
+/* Colores */
+#custom-music { color: #7aa2f7; }
+#clock { color: #7dcfff; }
+#battery { color: #c0caf5; }
+#network { color: #c0caf5; }
+
+#battery.warning { color: #e0af68; }
+#battery.critical { color: #f7768e; }
+#battery.charging { color: #9ece6a; }
+
+/* --- BOTÓN DE APAGADO (Círculo Perfecto dentro de la píldora) --- */
+#custom-power {
+    background-color: rgba(247, 118, 142, 0.15); /* Círculo rojizo suave de fondo */
+    color: #f7768e;
+    border-radius: 100%; /* Círculo perfecto */
+    min-width: 20px; 
+    min-height: 20px;
+    margin: 2px 4px 2px 0px; 
+    padding: 0; 
+}
+
+/* Forzar centrado del icono de apagado */
+#custom-power label {
+    font-size: 10px; /* Icono hiper reducido para asegurar el centrado */
+    margin: 0;
+    padding: 0;
+}
+
+/* Efectos Hover sutiles dentro de la píldora */
+#custom-music:hover, #network:hover, #custom-power:hover {
+    color: #ffffff;
+    transition: all 0.2s ease;
+}
+
+/* --- WORKSPACES Y ANIMACIÓN --- */
+#workspaces button {
+    padding: 0 6px; 
+    color: #565f89;
+    background: transparent;
+    border-radius: 999px; /* Forma de mini-píldora para el escritorio activo */
+    margin: 1px 2px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+}
+
+#workspaces button.active {
+    color: #1a1b26;
+    background-image: linear-gradient(135deg, #bb9af7, #f7768e, #e0af68);
+    text-shadow: 0 0 1px rgba(0,0,0,0.5);
+    box-shadow: 0 2px 4px rgba(187, 154, 247, 0.4);
+}
+
+#workspaces button:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #c0caf5;
+}
+
+#workspaces button.urgent {
+    color: #f7768e;
+    background-color: rgba(247, 118, 142, 0.2);
+}
