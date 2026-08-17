@@ -1,0 +1,102 @@
+* {
+    rosewater: #f5e0dc;
+    flamingo:  #f2cdcd;
+    pink:      #f5c2e7;
+    mauve:     #cba6f7;
+    red:       #f38ba8;
+    maroon:    #eba0ac;
+    peach:     #fab387;
+    yellow:    #f9e2af;
+    green:     #a6e3a1;
+    teal:      #94e2d5;
+    sky:       #89dceb;
+    sapphire:  #74c7ec;
+    blue:      #89b4fa;
+    lavender:  #b4befe;
+    text:      #cdd6f4;
+    subtext1:  #bac2de;
+    subtext0:  #a6adc8;
+    overlay2:  #9399b2;
+    overlay1:  #7f849c;
+    overlay0:  #6c7086;
+    surface2:  #585b70;
+    surface1:  #45475a;
+    surface0:  #313244;
+    base:      #1e1e2e;
+    mantle:    #181825;
+    crust:     #11111b;
+
+    acento:           @mauve;
+    fondo-principal:  @base;
+    fondo-secundario: @surface0;
+    texto-principal:  @text;
+    texto-apagado:    @overlay0;
+
+    background-color: transparent;
+}
+
+window {
+    background-color: @fondo-principal;
+    border:           2px;
+    border-color:     @acento;
+    border-radius:    10px;
+    width:            35%;
+    padding:          20px;
+}
+
+mainbox {
+    spacing: 15px;
+}
+
+inputbar {
+    background-color: @fondo-secundario;
+    border-radius:    8px;
+    padding:          12px;
+    spacing:          10px;
+    children:         [ prompt, entry ];
+}
+
+prompt {
+    text-color: @acento;
+    font:       "bold";
+}
+
+entry {
+    text-color:        @texto-principal;
+    placeholder:       "Buscar...";
+    placeholder-color: @texto-apagado;
+}
+
+listview {
+    lines:        8;
+    columns:      1;
+    spacing:      5px;
+    fixed-height: true;
+}
+
+element {
+    padding:       10px;
+    border-radius: 8px;
+}
+
+element normal.normal, element alternate.normal {
+    background-color: transparent;
+    text-color:       @texto-principal;
+}
+
+element selected.normal {
+    background-color: @acento;
+    text-color:       @crust; 
+}
+
+element-text {
+    background-color: transparent;
+    text-color:       inherit;
+    vertical-align:   0.5;
+}
+
+element-icon {
+    background-color: transparent;
+    size:             1.5em;
+    margin:           0 15px 0 0;
+}
