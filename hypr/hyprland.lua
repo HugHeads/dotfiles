@@ -91,8 +91,8 @@ hl.env("QT_QPA_PLATFORMETHEME", "qt6ct")
 -- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/
 hl.config({
 	general = {
-		gaps_in = 5,
-		gaps_out = 15,
+		gaps_in = 2,
+		gaps_out = 10,
 
 		border_size = 2,
 
@@ -116,7 +116,7 @@ hl.config({
 
 		-- Change transparency of focused and unfocused windows
 		active_opacity = 1.0,
-		inactive_opacity = 0.85,
+		inactive_opacity = 0.8,
 
 		shadow = {
 			enabled = true,
